@@ -21,6 +21,7 @@ public class Main {
         int i = 0;
         int j = (a1a2.length - 1);
         int pivot = i+(j-i)/2;
+        int aaa = 13131313131;
 
 
         while ( i < j ) {
