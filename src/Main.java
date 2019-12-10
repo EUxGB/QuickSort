@@ -15,14 +15,14 @@ public class Main {
             a1a2[i] = a2[j];
             j++;
         }
+        return a1a2;
     }
 
-    public static int[] sortQ (int[] a1a2) {
-        int i = 0;
-        int j = (a1a2.length - 1);
-        int pivot = i+(j-i)/2;
-        int aaa = 13131313131;
-        int aa4a = 13131313131;
+    public static int[] sortQ (int[] a1a2, int first, int last) {
+        int i = first;
+        int j = last;
+        int pivot = j/2;
+
 
 
         while ( i < j ) {
@@ -34,15 +34,18 @@ public class Main {
             while (j > pivot && (a1a2[j] > a1a2[pivot])) {
                 j--;
 
-//                a1a2[a1a2.length - 1] = a1a2[i] ;
-//                a1a2[i] = pivot;
+
             }
 
 
-            if (i < j) {
+            if (i <= j) {
                 int temp = a1a2[i];
                 a1a2[i] = a1a2[j];
                 a1a2[j] = temp;
+                i++;
+                j--;
+
+
                 if (i == pivot)
                     pivot = j;
                 else if (j == pivot)
@@ -63,24 +66,28 @@ public class Main {
     public static void main(String[] args) {
         int N1 = 5;
         int N2 = 5;
-        int[] n1 = new int[N1];
-        int[] n2 = new int[N2];
+        int[] n1 =  {9,3,5,1,4};
+        int[] n2 = {1,0,5,9,7};
         int[] n3;
 
-        for (int i = 0; i < n1.length; i++) {
-            n1[i] = i;
-        }
 
-        for (int j = 0; j < n2.length; j++) {
-            n2[j] = j;
-        }
+
+
+
+//        for (int i = 0; i < n1.length; i++) {
+//            n1[i] = i;
+//        }
+//
+//        for (int j = 0; j < n2.length; j++) {
+//            n2[j] = j*2-5;
+//        }
 
 
         n3 = split (n1, n2);
-        sortQ(n3);
+        n3 = sortQ(n3);
 
         for (int k = 0; k < n1.length + n2.length; k++) {
-            System.out.println(n3[k]);
+            System.out.print(n3[k]);
         }
 
     }
